@@ -1,0 +1,40 @@
+{% extends "ARbook/layout.html" %}
+{% load static %}
+
+{% block body %}
+<script>
+    var labels = JSON.parse('{{internes_list|escapejs}}')
+
+</script>
+{% if user.is_authenticated and user.is_staff %}
+<script src="{% static 'ARbook/arbook.js' %}"></script>
+    
+<h3>Hello</h3>
+
+<select name="internes" id="internes">
+    <option value="" selected disabled hidden>Choisir interne</option>
+    {%for interne in internes%}
+    <option value="{{interne}}">{{interne}}</option>
+    {%endfor%}
+</select>
+<select name="gestes" id="geste">
+    <option value="" selected disabled hidden>Choisir geste</option>
+    {%for geste in gestes%}
+    <option value="{{geste}}">{{geste}}</option>
+    {%endfor%}
+</select>
+<select name="chirurgies" id="chirurgies">
+    <option value="" selected disabled hidden>Choisir chirurgie</option>
+    {%for chirurgie in chirurgies%}
+    <option value="{{chirurgie}}">{{chirurgie}}</option>
+    {%endfor%}
+</select>
+
+<div id="repartition"></div>
+<div id="gestes"></div>
+<div id="chir"></div>
+<div id="comparaison"></div>
+
+{% endif %}
+
+{% endblock %}

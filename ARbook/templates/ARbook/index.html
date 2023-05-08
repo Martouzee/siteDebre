@@ -1,0 +1,53 @@
+{% extends "ARbook/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="new-entry-view">
+        <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+        <h3>Nouvelle Anesthésie</h3>
+        <form id="post-form" method="POST">
+            {%csrf_token%}
+            {{formAge.as_p}}
+            {{formChir.as_p}}
+            <div id="neonat">{{formNeonat.as_p}}</div>
+            {{formMove.as_p}}
+            {{formAlr.as_p}}
+            {{formComplications.as_p}}
+            {{formMater.as_p}}
+            
+
+            <input type="submit" class="btn btn-primary" id="submit-post"/>
+        </form>
+    </div>
+    <div id="profile-view"></div>
+    <div id="posts-view"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+        // Get a reference to the formNeonat field
+        var formNeonat = document.getElementById('neonat');
+        
+        // Get a reference to the formChir field
+        var formChir = document.getElementById('id_chirurgie')
+    
+        // Function to show or hide the formNeonat field based on the formChir value
+        function toggleFormNeonat() {
+            if (formChir.value === 'Neonatologie') {
+                formNeonat.style.display = 'block';
+            } else {
+                formNeonat.style.display = 'none';
+            }
+        }
+    
+    // Call the toggleFormNeonat function when the formChir field value changes
+    formChir.addEventListener('change', toggleFormNeonat);
+    
+    // Call the toggleFormNeonat function once on page load to initialize the field visibility
+    toggleFormNeonat();
+    })
+        
+    </script>
+
+{% endblock %}
+
