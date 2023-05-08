@@ -157,7 +157,7 @@ class ALR (models.Model):
 class Neonat (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_neonat')
-    lame = models.CharField(max_length=25,choices=lames_choices)
+    lame = models.CharField(max_length=25,choices=lames_choices,blank=True)
     rachi = models.BooleanField(default=False,blank=True)
     vvp = models.BooleanField(default=False,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)

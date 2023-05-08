@@ -25,7 +25,7 @@ def index(request):
         context = {'formAge':formAge,'formChir':formChir,'formMove':formMove,'formAlr':formAlr,'formNeonat':formNeonat,'formMater':formMater,'formComplications':formComplications}
         return render (request, "ARbook/index.html", context)
     
-    else: 
+    elif request.method == 'POST': 
         forms = [ChirurgieForm(request.POST),
                  MovesForm(request.POST),
                  AlrForm(request.POST),
@@ -38,13 +38,10 @@ def index(request):
         user = User.objects.get(username=request.user)
         for form in forms:
                 if form.is_valid():
-                    print('form is valid')
                     obj = form.save(commit=False)
                     obj.interne = user
                     obj.save()  
 
-                else:
-                    print('form is not valid')
 
         return HttpResponseRedirect(reverse('index'))
         

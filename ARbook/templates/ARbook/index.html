@@ -5,7 +5,7 @@
     <div id="new-entry-view">
         <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
         <h3>Nouvelle Anesthésie</h3>
-        <form id="post-form" method="POST" action="{% url 'index' %}">
+        <form id="post-form" method="POST">
             {%csrf_token%}
             {{formAge.as_p}}
             {{formChir.as_p}}
