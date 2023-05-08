@@ -1,1 +1,1 @@
-web: gunicorn SITE_DEBRE.wgsi:application
+web: gunicorn SITE_DEBRE.wgsi
