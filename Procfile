@@ -1,1 +1,1 @@
-web: gunicorn SITE_DEBRE.wgsi
+web: gunicorn ARbook.wgsi:application --log-file - --log-level debug
