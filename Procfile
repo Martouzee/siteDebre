@@ -1,0 +1,1 @@
+web: gunicorn SITE_DEBRE.wgsi
