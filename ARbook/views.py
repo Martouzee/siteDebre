@@ -38,9 +38,13 @@ def index(request):
         user = User.objects.get(username=request.user)
         for form in forms:
                 if form.is_valid():
+                    print('form is valid')
                     obj = form.save(commit=False)
                     obj.interne = user
                     obj.save()  
+
+                else:
+                    print('form is not valid')
 
         return HttpResponseRedirect(reverse('index'))
         
