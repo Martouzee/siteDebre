@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-internes = 11
+internes = 14
 
 surgery_choices = [
     ('Rachis','Rachis'),
