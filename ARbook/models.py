@@ -166,7 +166,7 @@ class Complications (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_complication')
     timestamp = models.DateTimeField(auto_now_add=True)
-    complication = models.CharField(max_length=25,choices=complications_choices,blank=True)
+    complication = models.CharField(max_length=45,choices=complications_choices,blank=True)
 
 
 class Mater (models.Model):
