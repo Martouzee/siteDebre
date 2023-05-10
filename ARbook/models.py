@@ -132,32 +132,32 @@ class User(AbstractUser):
 class Surgery(models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_suregery')
-    chirurgie = models.CharField(max_length=25,choices=surgery_choices,blank=True)
+    chirurgie = models.CharField(max_length=50,choices=surgery_choices,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class Age(models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_age')
-    age = models.CharField(max_length=25,choices=age_choices,blank=True)
+    age = models.CharField(max_length=50,choices=age_choices,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class BasicMoves (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_moves')
-    perfusion = models.CharField(max_length=25,choices=vvp_choices, blank=True)
-    voie_aerienne = models.CharField(max_length=25,choices=va_choices, blank=True)
+    perfusion = models.CharField(max_length=50,choices=vvp_choices, blank=True)
+    voie_aerienne = models.CharField(max_length=50,choices=va_choices, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class ALR (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_alr')
-    bloc = models.CharField(max_length=25,choices=bloc_choices,blank=True)
+    bloc = models.CharField(max_length=50,choices=bloc_choices,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class Neonat (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_neonat')
-    lame = models.CharField(max_length=25,choices=lames_choices,blank=True)
+    lame = models.CharField(max_length=50,choices=lames_choices,blank=True)
     rachi = models.BooleanField(default=False,blank=True)
     vvp = models.BooleanField(default=False,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -166,12 +166,12 @@ class Complications (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_complication')
     timestamp = models.DateTimeField(auto_now_add=True)
-    complication = models.CharField(max_length=45,choices=complications_choices,blank=True)
+    complication = models.CharField(max_length=50,choices=complications_choices,blank=True)
 
 
 class Mater (models.Model):
 
     interne = models.ForeignKey('User', on_delete=models.CASCADE, related_name='interne_mater')
     timestamp = models.DateTimeField(auto_now_add=True)
-    mater = models.CharField(max_length=25,choices=mater_choices,blank=True)
+    mater = models.CharField(max_length=50,choices=mater_choices,blank=True)
 
