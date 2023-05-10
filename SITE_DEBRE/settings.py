@@ -80,13 +80,16 @@ WSGI_APPLICATION = 'SITE_DEBRE.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgres://bddwtgjxyiojjz:2a6266b650578accf4bd73809d558ad9833568bc8606ac27ef396fb643b5d2c8@ec2-3-92-151-217.compute-1.amazonaws.com:5432/ddb7172v5rkedb',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
-import dj_database_url 
+ 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
